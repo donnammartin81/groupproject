@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "Reservations";
+}
+<h1>@ViewData["Reservations"]</h1>
+
+<div class="text-center">
+    <h1 >Thank you for Reserving with Sympo!</h1>
+    <img src="https://previews.123rf.com/images/roxanabalint/roxanabalint1405/roxanabalint140500415/28609786-book-now-grunge-rubber-stamp-on-white-vector-illustration.jpg" style="height:300px;width:700px;" />
+    <hr>
+    <h4 >You are just seconds away from reserving your next gathering and moving on with your life!!  We know you are busy and we are here to make things
+        just a little easier! Granted, we are not doing your laundry, but we can help get that meeting out of the way!  Just click on the buttons below and they will guide you
+        through the rest of the reservation process!!  Thank you for booking with SYMPO!
+    </h4>
+    <p> 
+        <hr>
+        <div class="bg-info" id="message"></div>
+
+        <form onsubmit="return processForm();" action="/" method="POST">
+        <p class="font-weight-bold">Please choose a reservation date: 
+        <input type="text" id="date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="" placeholder="enter date">
+        <p class="font-weight-bold">Please choose the room you would like to reserve on that date:</p>
+            <div class="dropdown">
+            <select onChange="changeRoomImage();" name="room" id="room">
+                <option value="">-- --</option>
+                <option value="The Lake View Room">The Lake View Room</option>
+                <option value="The Zen Gardens">The Zen Gardens</option>
+                <option value="Bellatory Room">Bellatory Room</option>
+                <option value="The Rose Room">The Rose Room</option>
+                <option value="Ten Thousand Waves Room">Ten Thousand Waves Room</option>
+                <option value="The Marvel Universe Room">The Marvel Universe Room</option>
+                <option value="The Mickey Mouse Clubhouse Room">The Mickey Mouse Clubhouse Room</option>
+            </select>                                              
+            <button class="btn btn-primary">Go!</button>
+          </div>
+          <img src="" style="display:none;width:900px;height:400px;" id="roomImage" />
+        </form>        
+
+<script>
+
+function changeRoomImage(){
+    var roomimage = document.getElementById('roomImage');
+    roomimage.style.display='inline';
+    roomImage.src = 'https://i.pinimg.com/originals/77/de/76/77de764e981c0efba28de6c20c242523.jpg';
+}
+
+function processForm(){
+    var form = document.getElementById('room');
+    var bookingDate = document.getElementById('date');
+    if (bookingDate.value == ''){
+        alert('you must enter a booking date!');
+        bookingDate.focus();
+        return false;
+    }
+    if (form.value == ''){
+        alert('you MUST select a room to continue!');
+        form.focus();
+        return false;
+    }
+    var msg = document.getElementById('message');
+    //msg.innerHTML = 'Thank you for your business, your order has been processed!';
+    alert('Thank you your order has been processed!');
+}
+</script></p>        
+        

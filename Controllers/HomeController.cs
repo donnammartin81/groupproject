@@ -15,7 +15,7 @@ namespace groupproject.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Booking()
         {
             return View();
         }

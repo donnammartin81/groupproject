@@ -31,3 +31,9 @@ C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\groupproject
 C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\groupproject.dll
 C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\groupproject.pdb
 C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\groupproject.csproj.CopyComplete
+C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\Razor\Views\Resident\Create.g.cshtml.cs
+C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\Razor\Views\Resident\Delete.g.cshtml.cs
+C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\Razor\Views\Resident\Details.g.cshtml.cs
+C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\Razor\Views\Resident\Edit.g.cshtml.cs
+C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\Razor\Views\Resident\Index.g.cshtml.cs
+C:\Users\donna\Documents\repos\groupproject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Booking.g.cshtml.cs

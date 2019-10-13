@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using groupproject.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using groupproject.Models;
 
 namespace groupproject
 {
@@ -41,6 +42,11 @@ namespace groupproject
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+                    // ADD SQLITE DATABASE
+                  services.AddDbContext<ResidentDbContext>(options =>
+                    options.UseSqlite("Data Source=resident.db")
+      );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
