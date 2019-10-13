@@ -17,18 +17,18 @@
 
         <form onsubmit="return processForm();" action="/" method="POST">
         <p class="font-weight-bold">Please choose a reservation date: 
-        <input type="text" id="date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="" placeholder="enter date">
+        <input type="date" id="date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="" placeholder="enter date">
         <p class="font-weight-bold">Please choose the room you would like to reserve on that date:</p>
             <div class="dropdown">
             <select onChange="changeRoomImage();" name="room" id="room">
-                <option value="">-- --</option>
-                <option value="The Lake View Room">The Lake View Room</option>
-                <option value="The Zen Gardens">The Zen Gardens</option>
-                <option value="Bellatory Room">Bellatory Room</option>
-                <option value="The Rose Room">The Rose Room</option>
-                <option value="Ten Thousand Waves Room">Ten Thousand Waves Room</option>
-                <option value="The Marvel Universe Room">The Marvel Universe Room</option>
-                <option value="The Mickey Mouse Clubhouse Room">The Mickey Mouse Clubhouse Room</option>
+                <option value="-1">-- Please choose --</option>
+                <option value="0">The Lake View Room</option>
+                <option value="1">The Zen Gardens</option>
+                <option value="2">Bellatory Room</option>
+                <option value="3">The Rose Room</option>
+                <option value="4">Ten Thousand Waves Room</option>
+                <option value="5">The Marvel Universe Room</option>
+                <option value="6">The Mickey Mouse Clubhouse Room</option>
             </select>                                              
             <button class="btn btn-primary">Go!</button>
           </div>
@@ -37,10 +37,24 @@
 
 <script>
 
+var imageArr = [];
+imageArr.push('https://i.pinimg.com/originals/ba/0c/8f/ba0c8f5a4e7a5d6ad17d830ed1c6ba72.jpg');
+imageArr.push('https://images.meetingsbooker.com/images/venues/londonmarriotthotelcanarywharf-0.jpg');
+imageArr.push('https://i.pinimg.com/originals/77/de/76/77de764e981c0efba28de6c20c242523.jpg');
+imageArr.push('https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2015/03/30/1631/Hyatt-Ziva-Rose-Hall-P065-St-Andrews.jpg');
+imageArr.push('https://www.ribbyhall.co.uk/uploads/images/header-spa/zen-garden-header.jpg');
+imageArr.push('https://i.pinimg.com/originals/d4/a0/fe/d4a0fe1a15792062c73da80d60ca6aff.png');
+imageArr.push('https://images.meetingsbooker.com/images/venues/londonmarriotthotelcanarywharf-0.jpg');
+
 function changeRoomImage(){
     var roomimage = document.getElementById('roomImage');
-    roomimage.style.display='inline';
-    roomImage.src = 'https://i.pinimg.com/originals/77/de/76/77de764e981c0efba28de6c20c242523.jpg';
+    var currentRoom = parseInt(document.getElementById('room').value);
+    if (currentRoom == -1){
+        roomimage.style.display='none';
+    } else {
+        roomimage.style.display='inline';
+    }
+    roomImage.src = imageArr[currentRoom];
 }
 
 function processForm(){
@@ -51,14 +65,15 @@ function processForm(){
         bookingDate.focus();
         return false;
     }
-    if (form.value == ''){
+    if (form.value == '' || form.value == -1){
         alert('you MUST select a room to continue!');
         form.focus();
         return false;
     }
     var msg = document.getElementById('message');
+    var currentRoom = document.getElementById('room').options[document.getElementById('room').selectedIndex].text;
     //msg.innerHTML = 'Thank you for your business, your order has been processed!';
-    alert('Thank you your order has been processed!');
+    alert('Thank you booking the ' + currentRoom +  ' room, your order has been processed!');
 }
 </script></p>        
         
